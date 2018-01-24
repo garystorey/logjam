@@ -4,7 +4,7 @@ A simple wrapper around console.log with no external dependencies.
 
 ## Install
 
-`npm install logjam`
+`npm install logjamjs`
 
 ## How To Use
 
@@ -21,24 +21,24 @@ logjam has the following two methods:
 Include logjam either via `require` or `import`
 
 ```javascript
-const logjam = require('logjam');
+const logjam = require('logjamjs');
 // or
-import logjam from 'logjam';
+import logjam from 'logjamjs';
 ```
 
 If you want to just use a basic logger:
 
 ```javascript
-const log = require('logjam').log;
+const log = require('logjamjs').log;
 // or
-import logjam from 'logjam';
+import logjam from 'logjamjs';
 const log = logjam.log;
 ```
 
 Once included, you can use the module like this:
 
 ```javascript
-import logjam from 'logjam';
+import logjam from 'logjamjs';
 const log = logjam.log;
 
 logjam.set({owner: 'Me', debug: true});

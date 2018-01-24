@@ -1,5 +1,5 @@
 {
-  "name": "logjam",
+  "name": "logjamjs",
   "version": "0.1.0",
   "description": "A console.log wrapper",
   "main": "index.js",
