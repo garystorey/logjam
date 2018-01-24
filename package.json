@@ -1,0 +1,11 @@
+{
+  "name": "logjam",
+  "version": "0.1.0",
+  "description": "A console.log wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gary Storey",
+  "license": "MIT"
+}
