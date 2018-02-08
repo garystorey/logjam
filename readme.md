@@ -21,16 +21,11 @@ logjam has the following two methods:
 Include logjam either via `require` or `import`
 
 ```javascript
-const logjam = require('logjamjs');
-// or
-import logjam from 'logjamjs';
-```
+// CommonJS
+const logjam = require('logjamjs')();
+const log = logjam.log;
 
-If you want to just use a basic logger:
-
-```javascript
-const log = require('logjamjs').log;
-// or
+// MJS
 import logjam from 'logjamjs';
 const log = logjam.log;
 ```
@@ -38,8 +33,6 @@ const log = logjam.log;
 Once included, you can use the module like this:
 
 ```javascript
-import logjam from 'logjamjs';
-const log = logjam.log;
 
 logjam.set({owner: 'Me', debug: true});
 log('hi!');
