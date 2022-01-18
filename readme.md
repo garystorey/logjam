@@ -8,64 +8,55 @@ A simple wrapper around `console.log` with no external dependencies.
 
 ## How To Use
 
-logjam currently supports the following two options:
+Use `jam` to modify the current configuration. The `LogJamConfig` object has two supported properties are:
 
-* `owner`:  [string] Default:`''` - Use this to preface any log statements.  useful if you want to include a function name or method in the log statement.
-* `debug`: [boolean] Default: `false` - Used to turn logging on or off.
+| Parameter | Type    | Default | Description                                                                                                           |
+| --------- | ------- | ------- | --------------------------------------------------------------------------------------------------------------------- |
+| `name`    | string  | `''`    | Use this to preface any log statements. useful if you want to include a function name or method in the log statement. |
+| `debug`   | boolean | `false` | Used to turn logging on or off.                                                                                       |
 
-logjam has the following two methods:
+---
 
-* `log`: [string] - Logs the `string` to the console.
-* `set`: [object] - Updates the `owner` and `debug` values
+<br/>
 
-Include logjam either via `require` or `import`
+### Example
 
-```javascript
-// CommonJS
-const logjam = require('logjamjs')();
-const log = logjam.log;
+<br/>
 
-// MJS
-import {set, log} from 'logjamjs';
+```typescript
+import { jam, log } from "logjamjs"
+jam({ name: "👌", debug: true })
+log("This is the log")
 ```
 
-Once included, you can use the module like this:
-
-```txt
-// file_to_open.txt
-hello world!
-How are you?
+```terminal
+👌: This is the log
 ```
 
-```javascript
-// in file.js
-const fs= require('fs')
-set({owner: '📁', debug: PROCESS.ENV !=='production'});
-const data = fs.readFileSync('file_to_open.txt', 'UTF-8');
-const lines = data.split(/\r?\n/);
-lines.forEach(log);  
+The `log` function takes two parameters. The first is the message to log to the console. The second is an optional `LogJamConfig` object to override the settings for the current log only.
+
+| Parameter | Type         | Description                           |
+| --------- | ------------ | ------------------------------------- |
+| `log`     | string       | Logs the `string` to the console.     |
+| `options` | LogJamConfig | Updates the `name` and `debug` values |
+
+---
+
+```typescript
+import { log, jam } from "logjamjs"
+jam({ owner: "🙊" })
+log("I am not shown")
+jam({ debug: true })
+log("I am visible")
+jam({ owner: "" })
+log("Im a generic log")
 ```
 
-```bash
-📁: hello world!
-📁: How are you?
-```
-
-```javascript
-// in other_file.js
-set({owner:'🙊', debug: false});
-log('I am not shown');
-set({debug: true});
-log('I am visible'); 
-set({owner:''});
-log('Im a generic log');
-
-```
-```bash
-🙊: I am visiblet
-I'm a generic log
+```terminal
+🙊: I am visible
+Im a generic log
 ```
 
 ## ETC
 
-This is provided as is.  You use it at your own risk.
+This is provided as is. You use it at your own risk.
