@@ -32,36 +32,40 @@ const log = logjam.log;
 
 Once included, you can use the module like this:
 
-```javascript
+```txt
 // file_to_open.txt
 hello world!
 How are you?
+```
 
+```javascript
 // in file.js
 const fs= require('fs')
 logjam.set({owner: '📁', debug: PROCESS.ENV !=='production'});
 const data = fs.readFileSync('file_to_open.txt', 'UTF-8');
 const lines = data.split(/\r?\n/);
 lines.forEach(log);  
+```
 
-// result:
-// 📁: hello world!
-// 📁: How are you?
+```bash
+📁: hello world!
+📁: How are you?
+```
 
+```javascript
 // in other_file.js
 logjam.set({owner:'🙊', debug: false});
-log('hi');
+log('I am not shown');
 logjam.set({debug: true});
-log('bye'); 
-
-//result
-// 🙊: bye
-
+log('I am visible'); 
 logjam.set({owner:''});
-log('hi');
+log('Im a generic log');
 
+```
+```bash
 //result
-// hi
+🙊: I am visiblet
+I'm a generic log
 ```
 
 ## ETC
