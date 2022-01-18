@@ -1,6 +1,6 @@
 # Logjam
 
-A simple wrapper around console.log with no external dependencies.
+A simple wrapper around `console.log` with no external dependencies.
 
 ## Install
 
@@ -33,21 +33,34 @@ const log = logjam.log;
 Once included, you can use the module like this:
 
 ```javascript
+// file_to_open.txt
+hello world!
+How are you?
 
-logjam.set({owner: 'Me', debug: true});
-log('hi!');
-// Me: hi!
+// in file.js
+const fs= require('fs')
+logjam.set({owner: '📁', debug: PROCESS.ENV !=='production'});
+const data = fs.readFileSync('file_to_open.txt', 'UTF-8');
+const lines = data.split(/\r?\n/);
+lines.forEach(log);  
 
-logjam.set({debug:false});
+// result:
+// 📁: hello world!
+// 📁: How are you?
+
+// in other_file.js
+logjam.set({owner:'🙊', debug: false});
 log('hi');
-//  (nothing)
+logjam.set({debug: true});
+log('bye'); 
 
-logjam.set({owner:'You'});
-log('hi');
-// You: hi
+//result
+// 🙊: bye
 
 logjam.set({owner:''});
 log('hi');
+
+//result
 // hi
 ```
 
