@@ -63,7 +63,6 @@ log('Im a generic log');
 
 ```
 ```bash
-//result
 🙊: I am visiblet
 I'm a generic log
 ```
