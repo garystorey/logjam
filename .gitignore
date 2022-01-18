@@ -41,7 +41,6 @@ typings/
 
 # Optional npm cache directory
 .npm
-.parcel-cache
 
 # Optional eslint cache
 .eslintcache
@@ -58,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+.parcel-cache
+
+dist
